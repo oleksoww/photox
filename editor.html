@@ -12,6 +12,10 @@
     <button id="addLayer">Dodaj warstwę</button>
     <button id="addText">Dodaj tekst</button>
     <input type="file" id="uploadImage" accept="image/*">
+    <label>Kolor pędzla:</label>
+    <input type="color" id="brushColor" value="#000000">
+    <label>Grubość:</label>
+    <input type="number" id="brushSize" value="5" min="1" max="50">
     <button id="brush">Pędzel</button>
     <button id="eraser">Gumka</button>
     <select id="fontSelect">
@@ -20,6 +24,13 @@
       <option value="Open Sans">Open Sans</option>
     </select>
     <button id="saveImage">Zapisz</button>
+  </div>
+
+  <div class="filters">
+    <label>Jasność:</label><input type="range" id="brightness" min="-1" max="1" step="0.1" value="0">
+    <label>Kontrast:</label><input type="range" id="contrast" min="-1" max="1" step="0.1" value="0">
+    <label>Nasycenie:</label><input type="range" id="saturation" min="-1" max="1" step="0.1" value="0">
+    <label>Rozmycie:</label><input type="range" id="blur" min="0" max="5" step="0.5" value="0">
   </div>
 
   <div class="canvas-container">
