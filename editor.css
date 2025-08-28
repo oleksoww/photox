@@ -12,25 +12,26 @@ body {
   background: #333;
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   width: 100%;
   justify-content: center;
   border-bottom: 2px solid #444;
 }
 
-.toolbar button,
-.toolbar select,
-.toolbar input {
-  padding: 8px 12px;
-  background: #444;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+.filters {
+  background: #222;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  border-bottom: 2px solid #444;
 }
 
-.toolbar button:hover {
-  background: #666;
+.filters label {
+  margin-right: 5px;
 }
 
 .canvas-container {
