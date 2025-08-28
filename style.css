@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: linear-gradient(135deg, #4b6cb7, #182848);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: white;
   font-family: Arial, sans-serif;
   display: flex;
@@ -25,7 +25,7 @@ body {
 
 .hero button {
   background: white;
-  color: #182848;
+  color: #0072ff;
   padding: 15px 30px;
   border: none;
   font-size: 18px;
@@ -33,6 +33,11 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
+.hero button:hover {
+  background: #ddd;
+}
+
 
 .hero button:hover {
   background: #ddd;
