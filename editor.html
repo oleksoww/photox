@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoX - Edytor</title>
+  <link rel="stylesheet" href="editor.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="toolbar">
+    <button id="addLayer">Dodaj warstwę</button>
+    <button id="addText">Dodaj tekst</button>
+    <input type="file" id="uploadImage" accept="image/*">
+    <button id="brush">Pędzel</button>
+    <button id="eraser">Gumka</button>
+    <select id="fontSelect">
+      <option value="Roboto">Roboto</option>
+      <option value="Montserrat">Montserrat</option>
+      <option value="Open Sans">Open Sans</option>
+    </select>
+    <button id="saveImage">Zapisz</button>
+  </div>
+
+  <div class="canvas-container">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>
