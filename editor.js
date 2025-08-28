@@ -4,11 +4,11 @@ const canvas = new fabric.Canvas('canvas', {
   backgroundColor: 'white'
 });
 
-// Narzędzia
+// Stan narzędzi
 let isBrush = false;
 let isEraser = false;
 
-// Dodawanie warstwy
+// Dodawanie prostokątnej warstwy
 document.getElementById('addLayer').addEventListener('click', () => {
   const rect = new fabric.Rect({
     width: 100,
@@ -50,8 +50,8 @@ document.getElementById('brush').addEventListener('click', () => {
   isBrush = true;
   isEraser = false;
   canvas.isDrawingMode = true;
-  canvas.freeDrawingBrush.color = 'black';
-  canvas.freeDrawingBrush.width = 5;
+  canvas.freeDrawingBrush.color = document.getElementById('brushColor').value;
+  canvas.freeDrawingBrush.width = parseInt(document.getElementById('brushSize').value);
 });
 
 // Gumka
@@ -60,7 +60,32 @@ document.getElementById('eraser').addEventListener('click', () => {
   isEraser = true;
   canvas.isDrawingMode = true;
   canvas.freeDrawingBrush.color = 'white';
-  canvas.freeDrawingBrush.width = 20;
+  canvas.freeDrawingBrush.width = parseInt(document.getElementById('brushSize').value);
+});
+
+// Filtry obrazu
+function applyFilters() {
+  const activeObject = canvas.getActiveObject();
+  if (!activeObject || !activeObject.filters) return;
+
+  const brightness = parseFloat(document.getElementById('brightness').value);
+  const contrast = parseFloat(document.getElementById('contrast').value);
+  const saturation = parseFloat(document.getElementById('saturation').value);
+  const blur = parseFloat(document.getElementById('blur').value);
+
+  activeObject.filters = [
+    new fabric.Image.filters.Brightness({ brightness }),
+    new fabric.Image.filters.Contrast({ contrast }),
+    new fabric.Image.filters.Saturation({ saturation }),
+    new fabric.Image.filters.Blur({ blur })
+  ];
+
+  activeObject.applyFilters();
+  canvas.renderAll();
+}
+
+['brightness', 'contrast', 'saturation', 'blur'].forEach(id => {
+  document.getElementById(id).addEventListener('input', applyFilters);
 });
 
 // Zapis obrazu
